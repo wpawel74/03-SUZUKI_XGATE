@@ -1,0 +1,228 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<Project version="2G - 1.7.8" name="SUZUKI_XGATE">
+  <Target name="SUZUKI_XGATE" isCurrent="1">
+    <Device manufacturerId="9" manufacturerName="ST" chipId="252" chipName="STM32F100C8" boardId="" boardName=""/>
+    <BuildOption>
+      <Compile>
+        <Option name="OptimizationLevel" value="0"/>
+        <Option name="UseFPU" value="0"/>
+        <Option name="UserEditCompiler" value="-fno-builtin"/>
+        <Option name="SupportCPlusplus" value="0"/>
+        <Includepaths>
+          <Includepath path="."/>
+        </Includepaths>
+        <DefinedSymbols>
+          <Define name="STM32F100C8"/>
+          <Define name="STM32F10X_MD_VL"/>
+          <Define name="STM32F1xx"/>
+          <Define name="USE_HAL_DRIVER"/>
+          <Define name="STM32F100xB"/>
+        </DefinedSymbols>
+      </Compile>
+      <Link useDefault="0">
+        <Option name="DiscardUnusedSection" value="0"/>
+        <Option name="UserEditLinkder" value=""/>
+        <Option name="UseMemoryLayout" value="1"/>
+        <Option name="nostartfiles" value="1"/>
+        <Option name="LTO" value="0"/>
+        <Option name="IsNewStartupCode" value="1"/>
+        <Option name="Library" value="Not use C Library"/>
+        <Option name="UserEditLinker" value=""/>
+        <LinkedLibraries/>
+        <MemoryAreas debugInFlashNotRAM="1">
+          <Memory name="IROM1" type="ReadOnly" size="0x00010000" startValue="0x08000000"/>
+          <Memory name="IRAM1" type="ReadWrite" size="0x00002000" startValue="0x20000000"/>
+          <Memory name="IROM2" type="ReadOnly" size="" startValue=""/>
+          <Memory name="IRAM2" type="ReadWrite" size="" startValue=""/>
+        </MemoryAreas>
+        <LocateLinkFile path="../../configuration/programdata/suzuki_xgate/link.ld" type="0"/>
+      </Link>
+      <Output>
+        <Option name="OutputFileType" value="0"/>
+        <Option name="Path" value="./"/>
+        <Option name="Name" value="SUZUKI_GATE"/>
+        <Option name="HEX" value="1"/>
+        <Option name="BIN" value="1"/>
+      </Output>
+      <User>
+        <UserRun name="Run#1" type="Before" checked="0" value=""/>
+        <UserRun name="Run#1" type="After" checked="0" value=""/>
+      </User>
+    </BuildOption>
+    <DebugOption>
+      <Option name="org.coocox.codebugger.gdbjtag.core.adapter" value="ST-Link"/>
+      <Option name="org.coocox.codebugger.gdbjtag.core.debugMode" value="SWD"/>
+      <Option name="org.coocox.codebugger.gdbjtag.core.clockDiv" value="1M"/>
+      <Option name="org.coocox.codebugger.gdbjtag.corerunToMain" value="1"/>
+      <Option name="org.coocox.codebugger.gdbjtag.core.jlinkgdbserver" value=""/>
+      <Option name="org.coocox.codebugger.gdbjtag.core.userDefineGDBScript" value=""/>
+      <Option name="org.coocox.codebugger.gdbjtag.core.targetEndianess" value="0"/>
+      <Option name="org.coocox.codebugger.gdbjtag.core.jlinkResetMode" value="Type 0: Normal"/>
+      <Option name="org.coocox.codebugger.gdbjtag.core.resetMode" value="SYSRESETREQ"/>
+      <Option name="org.coocox.codebugger.gdbjtag.core.ifSemihost" value="0"/>
+      <Option name="org.coocox.codebugger.gdbjtag.core.ifCacheRom" value="1"/>
+      <Option name="org.coocox.codebugger.gdbjtag.core.ipAddress" value="127.0.0.1"/>
+      <Option name="org.coocox.codebugger.gdbjtag.core.portNumber" value="2009"/>
+      <Option name="org.coocox.codebugger.gdbjtag.core.autoDownload" value="1"/>
+      <Option name="org.coocox.codebugger.gdbjtag.core.verify" value="1"/>
+      <Option name="org.coocox.codebugger.gdbjtag.core.downloadFuction" value="Erase Effected"/>
+      <Option name="org.coocox.codebugger.gdbjtag.core.defaultAlgorithm" value="STM32F10x_MD_64.elf"/>
+    </DebugOption>
+    <ExcludeFile/>
+  </Target>
+  <Components path="./">
+    <Component id="30" name="C Library" path="" type="2"/>
+    <Component id="464" name="CMSIS Boot" path="" type="2"/>
+  </Components>
+  <Files>
+    <File name="cmsis_boot/startup/startup_stm32f10x_md_vl.c" path="cmsis_boot/startup/startup_stm32f10x_md_vl.c" type="1"/>
+    <File name="HAL_DRIVERS/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_adc_ex.h" path="../HAL_DRIVERS/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_adc_ex.h" type="1"/>
+    <File name="HAL_DRIVERS/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc_ex.c" path="../HAL_DRIVERS/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc_ex.c" type="1"/>
+    <File name="CMSIS/Devices/ST/STM32F1xx/Include/stm32f101xe.h" path="../CMSIS/Device/ST/STM32F1xx/Include/stm32f101xe.h" type="1"/>
+    <File name="CMSIS/Devices/ST/STM32F1xx/Include/stm32f107xc.h" path="../CMSIS/Device/ST/STM32F1xx/Include/stm32f107xc.h" type="1"/>
+    <File name="src/modules/speedo.c" path="src/modules/speedo.c" type="1"/>
+    <File name="HAL_DRIVERS/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio_ex.c" path="../HAL_DRIVERS/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio_ex.c" type="1"/>
+    <File name="CMSIS/Devices/ST/STM32F1xx/Include/stm32f100xe.h" path="../CMSIS/Device/ST/STM32F1xx/Include/stm32f100xe.h" type="1"/>
+    <File name="src/ESP8266_STM32Fxxx/esp8266_conf.h" path="src/ESP8266_STM32Fxxx/esp8266_conf.h" type="1"/>
+    <File name="src" path="" type="2"/>
+    <File name="CMSIS/Include/core_cm7.h" path="../CMSIS/Include/core_cm7.h" type="1"/>
+    <File name="CMSIS/Include/core_cmInstr.h" path="../CMSIS/Include/core_cmInstr.h" type="1"/>
+    <File name="HAL_DRIVERS/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_flash.h" path="../HAL_DRIVERS/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_flash.h" type="1"/>
+    <File name="HAL_DRIVERS/STM32F1xx_HAL_Driver/Inc/Legacy" path="" type="2"/>
+    <File name="CMSIS/Include/core_cmSimd.h" path="../CMSIS/Include/core_cmSimd.h" type="1"/>
+    <File name="STM32_LIBRARIES/tm_stm32_rcc.h" path="../STM32_LIBRARIES/tm_stm32_rcc.h" type="1"/>
+    <File name="CMSIS/Devices/ST/STM32F1xx/Include/stm32f100x8.h" path="../CMSIS/Device/ST/STM32F1xx/Include/stm32f100x8.h" type="1"/>
+    <File name="src/ESP8266_STM32Fxxx" path="" type="2"/>
+    <File name="src/modules/inputs.c" path="src/modules/inputs.c" type="1"/>
+    <File name="CMSIS" path="" type="2"/>
+    <File name="HAL_DRIVERS/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_flash_ex.h" path="../HAL_DRIVERS/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_flash_ex.h" type="1"/>
+    <File name="cmsis_boot/stm32f10x.h" path="cmsis_boot/stm32f10x.h" type="1"/>
+    <File name="cmsis_boot/stm32f10x_conf.h" path="cmsis_boot/stm32f10x_conf.h" type="1"/>
+    <File name="HAL_DRIVERS/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_pwr.c" path="../HAL_DRIVERS/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_pwr.c" type="1"/>
+    <File name="CMSIS/Include/core_cmFunc.h" path="../CMSIS/Include/core_cmFunc.h" type="1"/>
+    <File name="HAL_DRIVERS/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_gpio_ex.h" path="../HAL_DRIVERS/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_gpio_ex.h" type="1"/>
+    <File name="uSTDIO_LIBRARIES/printf.c" path="../uSTDIO_LIBRARIES/printf.c" type="1"/>
+    <File name="STM32_LIBRARIES/tm_stm32_i2c.h" path="../STM32_LIBRARIES/tm_stm32_i2c.h" type="1"/>
+    <File name="CMSIS/Devices/ST/STM32F1xx/Include/stm32f1xx.h" path="../CMSIS/Device/ST/STM32F1xx/Include/stm32f1xx.h" type="1"/>
+    <File name="CMSIS/Include/core_cm0plus.h" path="../CMSIS/Include/core_cm0plus.h" type="1"/>
+    <File name="syscalls/syscalls.c" path="syscalls/syscalls.c" type="1"/>
+    <File name="STM32_LIBRARIES/ESP8266/buffer.c" path="../STM32_LIBRARIES/ESP8266/buffer.c" type="1"/>
+    <File name="HAL_DRIVERS/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h" path="../HAL_DRIVERS/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h" type="1"/>
+    <File name="CMSIS/Devices/ST/STM32F1xx/Include/stm32f101xg.h" path="../CMSIS/Device/ST/STM32F1xx/Include/stm32f101xg.h" type="1"/>
+    <File name="CMSIS/Devices/ST" path="" type="2"/>
+    <File name="HAL_DRIVERS/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_uart.h" path="../HAL_DRIVERS/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_uart.h" type="1"/>
+    <File name="CMSIS/Devices/ST/STM32F1xx/Include/stm32f102xb.h" path="../CMSIS/Device/ST/STM32F1xx/Include/stm32f102xb.h" type="1"/>
+    <File name="HAL_DRIVERS/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_dma_ex.h" path="../HAL_DRIVERS/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_dma_ex.h" type="1"/>
+    <File name="STM32_LIBRARIES/mainpage.h" path="../STM32_LIBRARIES/mainpage.h" type="1"/>
+    <File name="CMSIS/Devices/ST/STM32F1xx/Include/stm32f103x6.h" path="../CMSIS/Device/ST/STM32F1xx/Include/stm32f103x6.h" type="1"/>
+    <File name="CMSIS/Include/core_cm4.h" path="../CMSIS/Include/core_cm4.h" type="1"/>
+    <File name="src/modules/temperature.c" path="src/modules/temperature.c" type="1"/>
+    <File name="HAL_DRIVERS/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_flash.c" path="../HAL_DRIVERS/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_flash.c" type="1"/>
+    <File name="src/stm32fxxx_it.c" path="src/stm32fxxx_it.c" type="1"/>
+    <File name="HAL_DRIVERS/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_cortex.h" path="../HAL_DRIVERS/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_cortex.h" type="1"/>
+    <File name="src/modules/sensors.h" path="src/modules/sensors.h" type="1"/>
+    <File name="CMSIS/Devices/ST/STM32F1xx/Include/stm32f100xb.h" path="../CMSIS/Device/ST/STM32F1xx/Include/stm32f100xb.h" type="1"/>
+    <File name="STM32_LIBRARIES/tm_stm32_i2c.c" path="../STM32_LIBRARIES/tm_stm32_i2c.c" type="1"/>
+    <File name="cmsis_boot/system_stm32f10x.c" path="cmsis_boot/system_stm32f10x.c" type="1"/>
+    <File name="CMSIS/Devices/ST/STM32F1xx" path="" type="2"/>
+    <File name="HAL_DRIVERS/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_pcd_ex.h" path="../HAL_DRIVERS/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_pcd_ex.h" type="1"/>
+    <File name="src/ESP8266_STM32Fxxx/esp8266_ll.h" path="src/ESP8266_STM32Fxxx/esp8266_ll.h" type="1"/>
+    <File name="STM32_LIBRARIES/tm_stm32_adc.c" path="../STM32_LIBRARIES/tm_stm32_adc.c" type="1"/>
+    <File name="HAL_DRIVERS/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_spi.c" path="../HAL_DRIVERS/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_spi.c" type="1"/>
+    <File name="HAL_DRIVERS/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_pwr.h" path="../HAL_DRIVERS/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_pwr.h" type="1"/>
+    <File name="CMSIS/Devices/ST/STM32F1xx/Include/stm32f101x6.h" path="../CMSIS/Device/ST/STM32F1xx/Include/stm32f101x6.h" type="1"/>
+    <File name="STM32_LIBRARIES/tm_stm32_delay.c" path="../STM32_LIBRARIES/tm_stm32_delay.c" type="1"/>
+    <File name="HAL_DRIVERS/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_dma.h" path="../HAL_DRIVERS/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_dma.h" type="1"/>
+    <File name="STM32_LIBRARIES/ESP8266" path="" type="2"/>
+    <File name="CMSIS/Devices/ST/STM32F1xx/Include/stm32f102x6.h" path="../CMSIS/Device/ST/STM32F1xx/Include/stm32f102x6.h" type="1"/>
+    <File name="HAL_DRIVERS/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_spi_ex.c" path="../HAL_DRIVERS/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_spi_ex.c" type="1"/>
+    <File name="src/defines.h" path="src/defines.h" type="1"/>
+    <File name="HAL_DRIVERS/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_def.h" path="../HAL_DRIVERS/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_def.h" type="1"/>
+    <File name="CMSIS/Devices/ST/STM32F1xx/Include/stm32f103xe.h" path="../CMSIS/Device/ST/STM32F1xx/Include/stm32f103xe.h" type="1"/>
+    <File name="cmsis_boot/system_stm32f10x.h" path="cmsis_boot/system_stm32f10x.h" type="1"/>
+    <File name="HAL_DRIVERS/STM32F1xx_HAL_Driver/Inc" path="" type="2"/>
+    <File name="STM32_LIBRARIES/tm_stm32_delay.h" path="../STM32_LIBRARIES/tm_stm32_delay.h" type="1"/>
+    <File name="src/config.h" path="src/config.h" type="1"/>
+    <File name="CMSIS/Include" path="" type="2"/>
+    <File name="CMSIS/Devices/ST/STM32F1xx/Include/stm32f101xb.h" path="../CMSIS/Device/ST/STM32F1xx/Include/stm32f101xb.h" type="1"/>
+    <File name="HAL_DRIVERS/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_rcc_ex.h" path="../HAL_DRIVERS/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_rcc_ex.h" type="1"/>
+    <File name="CMSIS/Devices/ST/STM32F1xx/Include/system_stm32f1xx.h" path="../CMSIS/Device/ST/STM32F1xx/Include/system_stm32f1xx.h" type="1"/>
+    <File name="src/modules" path="" type="2"/>
+    <File name="HAL_DRIVERS/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_adc_ex.c" path="../HAL_DRIVERS/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_adc_ex.c" type="1"/>
+    <File name="uSTDIO_LIBRARIES" path="" type="2"/>
+    <File name="HAL_DRIVERS/STM32F1xx_HAL_Driver/Src/stm32f1xx_ll_usb.c" path="../HAL_DRIVERS/STM32F1xx_HAL_Driver/Src/stm32f1xx_ll_usb.c" type="1"/>
+    <File name="HAL_DRIVERS/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_adc.h" path="../HAL_DRIVERS/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_adc.h" type="1"/>
+    <File name="STM32_LIBRARIES/stm32_pcf8574.h" path="../STM32_LIBRARIES/stm32_pcf8574.h" type="1"/>
+    <File name="cmsis_boot" path="" type="2"/>
+    <File name="STM32_LIBRARIES" path="" type="2"/>
+    <File name="STM32_LIBRARIES/stm32_at24.c" path="../STM32_LIBRARIES/stm32_at24.c" type="1"/>
+    <File name="HAL_DRIVERS/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_pcd.h" path="../HAL_DRIVERS/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_pcd.h" type="1"/>
+    <File name="CMSIS/Devices/ST/STM32F1xx/Include" path="" type="2"/>
+    <File name="HAL_DRIVERS/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_dma.c" path="../HAL_DRIVERS/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_dma.c" type="1"/>
+    <File name="CMSIS/Include/core_sc300.h" path="../CMSIS/Include/core_sc300.h" type="1"/>
+    <File name="HAL_DRIVERS/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio.c" path="../HAL_DRIVERS/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio.c" type="1"/>
+    <File name="cmsis_boot/startup" path="" type="2"/>
+    <File name="src/os_compat.h" path="src/os_compat.h" type="1"/>
+    <File name="CMSIS/Include/arm_math.h" path="../CMSIS/Include/arm_math.h" type="1"/>
+    <File name="HAL_DRIVERS/STM32F1xx_HAL_Driver/Src" path="" type="2"/>
+    <File name="HAL_DRIVERS/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc.c" path="../HAL_DRIVERS/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc.c" type="1"/>
+    <File name="CMSIS/Include/core_cm0.h" path="../CMSIS/Include/core_cm0.h" type="1"/>
+    <File name="src/ESP8266_STM32Fxxx/esp8266_ll.c" path="src/ESP8266_STM32Fxxx/esp8266_ll.c" type="1"/>
+    <File name="HAL_DRIVERS/STM32F1xx_HAL_Driver" path="" type="2"/>
+    <File name="STM32_LIBRARIES/tm_stm32_exti.h" path="../STM32_LIBRARIES/tm_stm32_exti.h" type="1"/>
+    <File name="STM32_LIBRARIES/tm_stm32_usart.h" path="../STM32_LIBRARIES/tm_stm32_usart.h" type="1"/>
+    <File name="STM32_LIBRARIES/stm32_pcf8574.c" path="../STM32_LIBRARIES/stm32_pcf8574.c" type="1"/>
+    <File name="HAL_DRIVERS" path="" type="2"/>
+    <File name="STM32_LIBRARIES/tm_stm32_general.c" path="../STM32_LIBRARIES/tm_stm32_general.c" type="1"/>
+    <File name="STM32_LIBRARIES/tm_stm32_exti.c" path="../STM32_LIBRARIES/tm_stm32_exti.c" type="1"/>
+    <File name="src/modules/ap.c" path="src/modules/ap.c" type="1"/>
+    <File name="STM32_LIBRARIES/stm32_at24.h" path="../STM32_LIBRARIES/stm32_at24.h" type="1"/>
+    <File name="STM32_LIBRARIES/tm_stm32_adc.h" path="../STM32_LIBRARIES/tm_stm32_adc.h" type="1"/>
+    <File name="HAL_DRIVERS/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_pcd_ex.c" path="../HAL_DRIVERS/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_pcd_ex.c" type="1"/>
+    <File name="HAL_DRIVERS/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_gpio.h" path="../HAL_DRIVERS/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_gpio.h" type="1"/>
+    <File name="HAL_DRIVERS/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_spi.h" path="../HAL_DRIVERS/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_spi.h" type="1"/>
+    <File name="STM32_LIBRARIES/tm_stm32_ds18b20.h" path="../STM32_LIBRARIES/tm_stm32_ds18b20.h" type="1"/>
+    <File name="CMSIS/Include/arm_const_structs.h" path="../CMSIS/Include/arm_const_structs.h" type="1"/>
+    <File name="CMSIS/Include/core_cm3.h" path="../CMSIS/Include/core_cm3.h" type="1"/>
+    <File name="STM32_LIBRARIES/tm_stm32_usart.c" path="../STM32_LIBRARIES/tm_stm32_usart.c" type="1"/>
+    <File name="src/main.c" path="src/main.c" type="1"/>
+    <File name="CMSIS/Devices" path="" type="2"/>
+    <File name="STM32_LIBRARIES/ESP8266/esp8266.h" path="../STM32_LIBRARIES/ESP8266/esp8266.h" type="1"/>
+    <File name="CMSIS/Devices/ST/STM32F1xx/Include/stm32f103xg.h" path="../CMSIS/Device/ST/STM32F1xx/Include/stm32f103xg.h" type="1"/>
+    <File name="CMSIS/Include/arm_common_tables.h" path="../CMSIS/Include/arm_common_tables.h" type="1"/>
+    <File name="HAL_DRIVERS/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_i2c.h" path="../HAL_DRIVERS/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_i2c.h" type="1"/>
+    <File name="HAL_DRIVERS/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_cortex.c" path="../HAL_DRIVERS/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_cortex.c" type="1"/>
+    <File name="HAL_DRIVERS/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_i2c.c" path="../HAL_DRIVERS/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_i2c.c" type="1"/>
+    <File name="HAL_DRIVERS/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_usb.h" path="../HAL_DRIVERS/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_usb.h" type="1"/>
+    <File name="STM32_LIBRARIES/tm_stm32_rcc.c" path="../STM32_LIBRARIES/tm_stm32_rcc.c" type="1"/>
+    <File name="STM32_LIBRARIES/tm_stm32_buffer.c" path="../STM32_LIBRARIES/tm_stm32_buffer.c" type="1"/>
+    <File name="HAL_DRIVERS/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_rcc.h" path="../HAL_DRIVERS/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_rcc.h" type="1"/>
+    <File name="STM32_LIBRARIES/tm_stm32_gpio.h" path="../STM32_LIBRARIES/tm_stm32_gpio.h" type="1"/>
+    <File name="STM32_LIBRARIES/attributes.h" path="../STM32_LIBRARIES/attributes.h" type="1"/>
+    <File name="STM32_LIBRARIES/tm_stm32_onewire.h" path="../STM32_LIBRARIES/tm_stm32_onewire.h" type="1"/>
+    <File name="HAL_DRIVERS/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_flash_ex.c" path="../HAL_DRIVERS/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_flash_ex.c" type="1"/>
+    <File name="src/modules/odometer.c" path="src/modules/odometer.c" type="1"/>
+    <File name="HAL_DRIVERS/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_uart.c" path="../HAL_DRIVERS/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_uart.c" type="1"/>
+    <File name="CMSIS/Devices/ST/STM32F1xx/Include/stm32f103xb.h" path="../CMSIS/Device/ST/STM32F1xx/Include/stm32f103xb.h" type="1"/>
+    <File name="STM32_LIBRARIES/tm_stm32_general.h" path="../STM32_LIBRARIES/tm_stm32_general.h" type="1"/>
+    <File name="STM32_LIBRARIES/tm_stm32_spi.c" path="../STM32_LIBRARIES/tm_stm32_spi.c" type="1"/>
+    <File name="HAL_DRIVERS/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_conf.h" path="../HAL_DRIVERS/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_conf.h" type="1"/>
+    <File name="src/modules/voltage.c" path="src/modules/voltage.c" type="1"/>
+    <File name="CMSIS/Devices/ST/STM32F1xx/Include/stm32f105xc.h" path="../CMSIS/Device/ST/STM32F1xx/Include/stm32f105xc.h" type="1"/>
+    <File name="STM32_LIBRARIES/ESP8266/esp8266.c" path="../STM32_LIBRARIES/ESP8266/esp8266.c" type="1"/>
+    <File name="STM32_LIBRARIES/tm_stm32_spi.h" path="../STM32_LIBRARIES/tm_stm32_spi.h" type="1"/>
+    <File name="HAL_DRIVERS/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_pcd.c" path="../HAL_DRIVERS/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_pcd.c" type="1"/>
+    <File name="STM32_LIBRARIES/stm32fxxx_hal.h" path="../STM32_LIBRARIES/stm32fxxx_hal.h" type="1"/>
+    <File name="syscalls" path="" type="2"/>
+    <File name="STM32_LIBRARIES/tm_stm32_gpio.c" path="../STM32_LIBRARIES/tm_stm32_gpio.c" type="1"/>
+    <File name="CMSIS/Include/core_sc000.h" path="../CMSIS/Include/core_sc000.h" type="1"/>
+    <File name="HAL_DRIVERS/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_adc.c" path="../HAL_DRIVERS/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_adc.c" type="1"/>
+    <File name="STM32_LIBRARIES/ESP8266/buffer.h" path="../STM32_LIBRARIES/ESP8266/buffer.h" type="1"/>
+    <File name="STM32_LIBRARIES/tm_stm32_ds18b20.c" path="../STM32_LIBRARIES/tm_stm32_ds18b20.c" type="1"/>
+    <File name="src/stm32fxxx_it.h" path="src/stm32fxxx_it.h" type="1"/>
+    <File name="STM32_LIBRARIES/tm_stm32_buffer.h" path="../STM32_LIBRARIES/tm_stm32_buffer.h" type="1"/>
+    <File name="HAL_DRIVERS/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal.c" path="../HAL_DRIVERS/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal.c" type="1"/>
+    <File name="STM32_LIBRARIES/tm_stm32_onewire.c" path="../STM32_LIBRARIES/tm_stm32_onewire.c" type="1"/>
+    <File name="HAL_DRIVERS/STM32F1xx_HAL_Driver/Inc/Legacy/stm32_hal_legacy.h" path="../HAL_DRIVERS/STM32F1xx_HAL_Driver/Inc/Legacy/stm32_hal_legacy.h" type="1"/>
+  </Files>
+</Project>
