@@ -4,7 +4,7 @@
 
 #include <stm32_at24.h>
 #include "tm_stm32_delay.h"
-
+#include "xgate.h"
 #include <stdio.h>
 
 #define EEPROM_ODOMETER_ADDR				0
@@ -28,15 +28,13 @@ void odometer_init(void){
 	PW_AT24xx_Read( I2C1, EEPROM_ODOMETER_ADDR,
 						 (uint8_t *)&odometer,
 						 sizeof(odometer) );
+	odometer_irqc = odometer.value_2;
 	_D(("I: ODOMETER module loaded ... OK\n"));
 	_D(("I: odometer RD: %ld/%ld [meters]\n", odometer.value_1, odometer.value_2));
 }
 
 u32 odometer_get(void){
-	PW_AT24xx_Read( I2C1, EEPROM_ODOMETER_ADDR,
-						 (uint8_t *)&odometer,
-						 sizeof(odometer) );
-	return (u32)(((double)odometer.value_1) * SPEEDO_SENSOR_DISTANCE_METERS);
+	return (u32)(((double)odometer.value_1));
 }
 
 void odometer_push_eeprom(void){
@@ -46,10 +44,20 @@ void odometer_push_eeprom(void){
 }
 
 void odometer_poll(void){
-	odometer.value_1 += odometer_irqc;
-	odometer_irqc = 0;
+	odometer.value_2 = odometer_irqc;
+
+	if( (odometer_irqc * SPEEDO_SENSOR_DISTANCE_METERS) > 1000.0 ){
+		odometer.value_1++;
+		odometer_irqc = 0;
+	}
+
 	if( HAL_GetTick() > next_time ){
+		char notification[ 15 ];
+		sprintf( notification, "ODOMETER %d\n", odometer_get() );
+		xgate_set_notification( XGATE_ODOMETER );
+		xgate_send_notification( notification );
+
 		_D(("I: [%ld] odometer %ld [m]\n", HAL_GetTick(), odometer_get() ));
-		next_time = HAL_GetTick();// + (3 * 1000);
+		next_time = HAL_GetTick() + (3 * 1000);
 	}
 }

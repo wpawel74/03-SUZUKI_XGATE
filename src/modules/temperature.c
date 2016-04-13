@@ -2,6 +2,7 @@
 #include "config.h"
 #include "sensors.h"
 #include "tm_stm32_delay.h"
+#include "xgate.h"
 
 #ifdef WITH_DS18B20
 #include "tm_stm32_ds18b20.h"
@@ -45,6 +46,20 @@ static int DS18D20_SearchSensors( ROM roms[], int size ){
 	return owire_devices_count;
 }
 
+static void temperature_notification( int i, float val_temp ){
+	char notification[ 80 ];
+	sprintf( notification, "TEMPERATURE %02x:%02x:%02x:%02x:%02x:%02x:%02x:%02x %f\n",
+							roms[i].rom[0], roms[i].rom[1], roms[i].rom[2], roms[i].rom[3],
+							roms[i].rom[4], roms[i].rom[5], roms[i].rom[6], roms[i].rom[7],
+							val_temp);
+	xgate_set_notification( XGATE_TEMPERATURE );
+	xgate_send_notification( notification );
+}
+
+float temperature_get( int id ){
+	return ds18b20_temps[id];
+}
+
 static void DS18D20_ReadTemp(void){
 	int i;
 	/* Start temperature conversion on all devices on one bus */
@@ -59,6 +74,7 @@ static void DS18D20_ReadTemp(void){
 		if (TM_DS18B20_Read(&OneWire1, roms[i].rom, &ds18b20_temps[i])) {
 			/* Print temperature */
 			_D(("[DS18B20] ROM>%d: Temp %f\n", i, ds18b20_temps[i]));
+			temperature_notification( i, ds18b20_temps[i] );
 		} else {
 			/* Reading error */
 			_D(("[DS18B20] Reading error ROM>%02x:%02x:%02x:%02x:%02x:%02x:%02x:%02x\n",

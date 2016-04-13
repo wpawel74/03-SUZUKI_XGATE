@@ -22,6 +22,7 @@ static double fabs( double n ){
 }
 
 #include "os_compat.h"
+#include "xgate.h"
 
 #define PROJECT_NAME	"SUZUKI_GATE"
 #define AUTHOR			"Pablo <w_pawel74@tlen.pl>"
@@ -120,6 +121,11 @@ extern int AP_poll(void);
 
 #ifdef WITH_SPEEDO
 		if( HAL_GetTick() > (speedo_notification + 1 * 1000) ){
+			char notification[ 25 ];
+			sprintf( notification, "SPEED %d\n", (int)speedo_get_kmph() );
+			xgate_set_notification( XGATE_SPEED );
+			xgate_send_notification( notification );
+
 			//_D(("D: speed %.6f [KMPH]\n", speedo_get_kmph()));
 			speedo_notification = HAL_GetTick();
 		}
@@ -151,6 +157,11 @@ extern int AP_poll(void);
 			((float)fabs( (double)(voltage_get_input() - voltage_last) )) > VOLTAGE_NOTIFICATION_HISTERESIS_VOLTAGE
 #endif // VOLTAGE_NOTIFICATION_ABS
 				){
+			char notification[ 25 ];
+			sprintf( notification, "VOLTAGE %d\n", (int)(voltage_get_input() * 1000.f) );
+			xgate_set_notification( XGATE_VOLTAGE );
+			xgate_send_notification( notification );
+
 			_D(("D: voltage %.6f [V]\n", voltage_get_input()));
 #ifdef VOLTAGE_NOTIFICATION_PERIODICALLY
 			voltage_notification = HAL_GetTick();

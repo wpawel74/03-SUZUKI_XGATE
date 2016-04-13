@@ -5,6 +5,7 @@
 #include "os_compat.h"
 
 #include "esp8266.h"
+#include "xgate.h"
 
 typedef enum {
 	WIFI_AP_INITIALISATION = 0x00,		// initialization ESP8266
@@ -18,7 +19,7 @@ typedef enum {
  *             Server configuration
  *--------------------------------------------------*/
 #define AP_SERVER_PORT					80
-#define SERVER_MAX_SEND_BYTES			50
+#define SERVER_MAX_SEND_BYTES			150
 
 /**-------------------------------------------------
  *               usedfull macros
@@ -134,8 +135,11 @@ void AP_poll(void) {
 		/* Update ESP module */
 		ESP8266_Update(&ESP8266);
 
-		if( HAL_GetTick() > AP_breath ){
-			AP_SendData(&ESP8266_HLC, "0123456789", 10);
+		if( HAL_GetTick() > AP_breath && ESP8266_HLC.ConnStatus == ESP8266_CONN_OPEN ){
+			char buff[ SERVER_MAX_SEND_BYTES - 1 ];
+			int send_bytes = xgate_get_notifications( buff, sizeof(buff) );
+			if( send_bytes )
+				AP_SendData(&ESP8266_HLC, buff, send_bytes);
 			AP_breath = HAL_GetTick() + 20;
 		}
 		break;

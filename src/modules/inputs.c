@@ -1,5 +1,6 @@
 #include "os_compat.h"
 #include "config.h"
+#include "xgate.h"
 #include "tm_stm32_delay.h"
 
 #ifdef WITH_PCF8574
@@ -9,6 +10,9 @@
 #define PCF8574_GPIO_TURN_LIGHT					0x04
 #define PCF8574_GPIO_ALERT						0x08
 #define PCF8574_GPIO_ENGINE_WARNING				0x10
+#define PCF8574_GPIO_FUEL_WARNING				0x20
+#define PCF8574_GPIO_TEMP_WARNING				0x40
+#define PCF8574_GPIO_BATTERY_WARNING			0x80
 #endif // WITH_PCF8574
 
 void inputs_init(void){
@@ -18,47 +22,30 @@ void inputs_init(void){
 	_D(("I: INPUTS module loaded ... OK\n"));
 }
 
-static void inputs_send_notification( ATTR_NON_NULL const char *name ){
-	_D(("I: broadcast message: \"%s\"\n", name ));
+static uint8_t inputs_gpio = 0;
+
+u8 inputs_get(void){
+	return inputs_gpio;
 }
 
 void inputs_poll(void){
 #ifdef WITH_PCF8574
 	uint8_t ext_gpio = 0;
-	static uint8_t inputs_gpio = 0;
 	static uint32_t next_time = 0;
 
 	PW_PCF8574_ReadPort( I2C1, &ext_gpio );
 
-	if( (ext_gpio & PCF8574_GPIO_HIGH_BEAM) ^ ( inputs_gpio & PCF8574_GPIO_HIGH_BEAM) ){
-		if( ext_gpio & PCF8574_GPIO_HIGH_BEAM )
-			inputs_send_notification( "" );
-		else
-			inputs_send_notification( "" );
-	}
-	if( (ext_gpio & PCF8574_GPIO_LOW_BEAM) ^ ( inputs_gpio & PCF8574_GPIO_LOW_BEAM) ){
-		if( ext_gpio & PCF8574_GPIO_LOW_BEAM )
-			inputs_send_notification( "" );
-		else
-			inputs_send_notification( "" );
-	}
-	if( (ext_gpio & PCF8574_GPIO_TURN_LIGHT) ^ ( inputs_gpio & PCF8574_GPIO_TURN_LIGHT) ){
-		if( ext_gpio & PCF8574_GPIO_TURN_LIGHT )
-			inputs_send_notification( "" );
-		else
-			inputs_send_notification( "" );
-	}
-	if( (ext_gpio & PCF8574_GPIO_ALERT) ^ ( inputs_gpio & PCF8574_GPIO_ALERT) ){
-		if( ext_gpio & PCF8574_GPIO_ALERT )
-			inputs_send_notification( "" );
-		else
-			inputs_send_notification( "" );
-	}
-	if( (ext_gpio & PCF8574_GPIO_ENGINE_WARNING) ^ ( inputs_gpio & PCF8574_GPIO_ENGINE_WARNING) ){
-		if( ext_gpio & PCF8574_GPIO_ENGINE_WARNING )
-			inputs_send_notification( "" );
-		else
-			inputs_send_notification( "" );
+	if( (ext_gpio & PCF8574_GPIO_HIGH_BEAM) ^ ( inputs_gpio & PCF8574_GPIO_HIGH_BEAM) ||
+		(ext_gpio & PCF8574_GPIO_LOW_BEAM) ^ ( inputs_gpio & PCF8574_GPIO_LOW_BEAM) ||
+		(ext_gpio & PCF8574_GPIO_TURN_LIGHT) ^ ( inputs_gpio & PCF8574_GPIO_TURN_LIGHT) ||
+		(ext_gpio & PCF8574_GPIO_ALERT) ^ ( inputs_gpio & PCF8574_GPIO_ALERT) ||
+		(ext_gpio & PCF8574_GPIO_ENGINE_WARNING) ^ ( inputs_gpio & PCF8574_GPIO_ENGINE_WARNING) ||
+		HAL_GetTick() > next_time ){
+
+		char notification[ 15 ];
+		sprintf( notification, "INPUT %x\n", ext_gpio );
+		xgate_set_notification( XGATE_INPUTS );
+		xgate_send_notification( notification );
 	}
 
 	inputs_gpio = ext_gpio;
