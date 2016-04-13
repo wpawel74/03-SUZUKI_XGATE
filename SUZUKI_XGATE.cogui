@@ -12,32 +12,17 @@
 <presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">
 <part id="0"/>
 <part id="1"/>
-<part id="2"/>
-<part id="3"/>
-<part id="4"/>
 </presentation>
 </folder>
 </info>
 </editorArea>
-<editor id="org.coocox.builder.ui.editors.ConfigEditor" name="" partName="Configuration" title="Configuration" tooltip="" workbook="DefaultEditorWorkbook">
-<input factoryID="org.coocox.builder.ui.persistent.PersistentElementFactory">&#x0A;<org.coocox.builder.ui.editors.ConfigEditor horizontalPosition="0" subTagIndex="1" verticalPosition="0"/>
-</input>
+<editor activePart="true" focus="true" id="org.eclipse.cdt.ui.editor.CEditor" name="main.c" partName="main.c" path="C:/CooCox/CoIDE/workspace/03-SUZUKI_XGATE/src/main.c" title="main.c" tooltip="C:/CooCox/CoIDE/workspace/03-SUZUKI_XGATE/src/main.c" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/SUZUKI_XGATE/src/main.c"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="3337" selectionTopPixel="2334"/>
 </editor>
-<editor id="org.eclipse.cdt.ui.editor.CEditor" name="system_stm32f10x.c" partName="system_stm32f10x.c" path="C:/CooCox/CoIDE/workspace/SUZUKI_GATE/cmsis_boot/system_stm32f10x.c" title="system_stm32f10x.c" tooltip="C:/CooCox/CoIDE/workspace/SUZUKI_GATE/cmsis_boot/system_stm32f10x.c" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/SUZUKI_XGATE/cmsis_boot/system_stm32f10x.c"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="0" selectionTopPixel="0"/>
-</editor>
-<editor id="org.eclipse.cdt.ui.editor.CEditor" name="odometer.c" partName="odometer.c" path="C:/CooCox/CoIDE/workspace/SUZUKI_GATE/src/modules/odometer.c" title="odometer.c" tooltip="C:/CooCox/CoIDE/workspace/SUZUKI_GATE/src/modules/odometer.c" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/SUZUKI_XGATE/src/modules/odometer.c"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="0" selectionTopPixel="0"/>
-</editor>
-<editor id="org.eclipse.cdt.ui.editor.CEditor" name="speedo.c" partName="speedo.c" path="C:/CooCox/CoIDE/workspace/SUZUKI_GATE/src/modules/speedo.c" title="speedo.c" tooltip="C:/CooCox/CoIDE/workspace/SUZUKI_GATE/src/modules/speedo.c" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/SUZUKI_XGATE/src/modules/speedo.c"/>
-<editorState selectionHorizontalPixel="0" selectionLength="6" selectionOffset="489" selectionTopPixel="0"/>
-</editor>
-<editor activePart="true" focus="true" id="org.eclipse.cdt.ui.editor.CEditor" name="ap.c" partName="ap.c" path="C:/CooCox/CoIDE/workspace/SUZUKI_XGATE/src/modules/ap.c" title="ap.c" tooltip="C:/CooCox/CoIDE/workspace/SUZUKI_XGATE/src/modules/ap.c" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/SUZUKI_XGATE/src/modules/ap.c"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="5093" selectionTopPixel="66"/>
+<editor id="org.eclipse.cdt.ui.editor.CEditor" name="tm_stm32_usart.h" partName="tm_stm32_usart.h" path="C:/CooCox/CoIDE/workspace/STM32_LIBRARIES/tm_stm32_usart.h" title="tm_stm32_usart.h" tooltip="C:/CooCox/CoIDE/workspace/STM32_LIBRARIES/tm_stm32_usart.h" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/SUZUKI_XGATE/STM32_LIBRARIES/tm_stm32_usart.h"/>
+<editorState selectionHorizontalPixel="0" selectionLength="21" selectionOffset="10404" selectionTopPixel="5066"/>
 </editor>
 </editors>
 <views>
@@ -56,9 +41,13 @@
 <viewState CommonNavigator.LINKING_ENABLED="0" horizontalPosition="0" org.eclipse.ui.navigator.resources.workingSets.showTopLevelWorkingSets="0" verticalPosition="0">
 <expanded>
 <element path="/SUZUKI_XGATE"/>
+<element path="/SUZUKI_XGATE/HAL_DRIVERS"/>
+<element path="/SUZUKI_XGATE/HAL_DRIVERS/STM32F1xx_HAL_Driver"/>
+<element path="/SUZUKI_XGATE/HAL_DRIVERS/STM32F1xx_HAL_Driver/Src"/>
+<element path="/SUZUKI_XGATE/src"/>
 </expanded>
 <selection>
-<element path="/SUZUKI_XGATE"/>
+<element path="/SUZUKI_XGATE/HAL_DRIVERS/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_adc_ex.c"/>
 </selection>
 </viewState>
 </view>
@@ -294,6 +283,13 @@
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/SUZUKI_XGATE/src/modules/odometer.c"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/SUZUKI_XGATE/src/modules/speedo.c"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/SUZUKI_XGATE/src/modules/ap.c"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/SUZUKI_XGATE/src/main.c"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/SUZUKI_XGATE/STM32_LIBRARIES/tm_stm32_usart.h"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/SUZUKI_XGATE/STM32_LIBRARIES/tm_stm32_usart.c"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/SUZUKI_XGATE/STM32_LIBRARIES/tm_stm32_usart.c"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/SUZUKI_XGATE/src/main.c"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/SUZUKI_XGATE/STM32_LIBRARIES/tm_stm32_usart.h"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/SUZUKI_XGATE/HAL_DRIVERS/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_adc_ex.c"/>
 </editors>
 <item historyLabel="Configuration" index="0"/>
 <item historyLabel="Configuration" index="1"/>
@@ -355,8 +351,80 @@
 <item historyLabel="speedo.c" index="11">
 <position info="not_deleted" x="489" y="6"/>
 </item>
-<item active="true" historyLabel="ap.c" index="12">
-<position info="not_deleted" x="2507" y="0"/>
+<item historyLabel="ap.c" index="12">
+<position info="not_deleted" x="5093" y="0"/>
+</item>
+<item historyLabel="main.c" index="13">
+<position info="not_deleted" x="350" y="0"/>
+</item>
+<item historyLabel="tm_stm32_usart.h" index="14">
+<position info="not_deleted" x="23193" y="24"/>
+</item>
+<item historyLabel="tm_stm32_usart.c" index="15">
+<position info="not_deleted" x="28044" y="24"/>
+</item>
+<item historyLabel="tm_stm32_usart.h" index="14">
+<position info="not_deleted" x="18867" y="0"/>
+</item>
+<item historyLabel="tm_stm32_usart.c" index="16">
+<position info="not_deleted" x="0" y="0"/>
+</item>
+<item historyLabel="tm_stm32_usart.c" index="16">
+<position info="not_deleted" x="7929" y="0"/>
+</item>
+<item historyLabel="tm_stm32_usart.c" index="16">
+<position info="not_deleted" x="36707" y="17"/>
+</item>
+<item historyLabel="tm_stm32_usart.c" index="16">
+<position info="not_deleted" x="37245" y="0"/>
+</item>
+<item historyLabel="tm_stm32_usart.c" index="16">
+<position info="not_deleted" x="6750" y="18"/>
+</item>
+<item historyLabel="tm_stm32_usart.c" index="16">
+<position info="not_deleted" x="7929" y="0"/>
+</item>
+<item historyLabel="tm_stm32_usart.c" index="16">
+<position info="not_deleted" x="14467" y="0"/>
+</item>
+<item historyLabel="main.c" index="17">
+<position info="not_deleted" x="662" y="0"/>
+</item>
+<item historyLabel="tm_stm32_usart.c" index="16">
+<position info="not_deleted" x="8040" y="0"/>
+</item>
+<item historyLabel="tm_stm32_usart.h" index="18">
+<position info="not_deleted" x="10318" y="19"/>
+</item>
+<item historyLabel="main.c" index="17">
+<position info="not_deleted" x="662" y="0"/>
+</item>
+<item historyLabel="tm_stm32_usart.c" index="16">
+<position info="not_deleted" x="8066" y="0"/>
+</item>
+<item historyLabel="tm_stm32_usart.h" index="18">
+<position info="not_deleted" x="10404" y="21"/>
+</item>
+<item historyLabel="main.c" index="17">
+<position info="not_deleted" x="662" y="0"/>
+</item>
+<item historyLabel="tm_stm32_usart.c" index="16">
+<position info="not_deleted" x="8066" y="0"/>
+</item>
+<item historyLabel="tm_stm32_usart.c" index="16">
+<position info="not_deleted" x="7929" y="0"/>
+</item>
+<item historyLabel="tm_stm32_usart.c" index="16">
+<position info="not_deleted" x="37135" y="0"/>
+</item>
+<item historyLabel="stm32f1xx_hal_adc_ex.c" index="19">
+<position info="not_deleted" x="0" y="0"/>
+</item>
+<item historyLabel="tm_stm32_usart.c" index="16">
+<position info="not_deleted" x="6497" y="0"/>
+</item>
+<item active="true" historyLabel="main.c" index="17">
+<position info="not_deleted" x="662" y="0"/>
 </item>
 </navigationHistory>
 <input factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/" type="8"/>
@@ -365,6 +433,33 @@
 <actionBarAdvisor/>
 </window>
 <mruList>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="stm32f1xx_hal_adc_ex.c" tooltip="SUZUKI_XGATE/HAL_DRIVERS/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_adc_ex.c">
+<persistable path="/SUZUKI_XGATE/HAL_DRIVERS/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_adc_ex.c"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="tm_stm32_usart.h" tooltip="SUZUKI_XGATE/STM32_LIBRARIES/tm_stm32_usart.h">
+<persistable path="/SUZUKI_XGATE/STM32_LIBRARIES/tm_stm32_usart.h"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="main.c" tooltip="SUZUKI_XGATE/src/main.c">
+<persistable path="/SUZUKI_XGATE/src/main.c"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="tm_stm32_usart.c" tooltip="SUZUKI_XGATE/STM32_LIBRARIES/tm_stm32_usart.c">
+<persistable path="/SUZUKI_XGATE/STM32_LIBRARIES/tm_stm32_usart.c"/>
+</file>
+<file factoryID="org.eclipse.ui.ide.FileStoreEditorInputFactory" id="org.eclipse.ui.systemExternalEditor" name="SUZUKI_XGATE.coproj" tooltip="C:\CooCox\CoIDE\workspace\03-SUZUKI_XGATE\SUZUKI_XGATE.coproj">
+<persistable uri="file:/C:/CooCox/CoIDE/workspace/03-SUZUKI_XGATE/SUZUKI_XGATE.coproj"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="os_compat.h" tooltip="IOT_NODE/src/os_compat.h">
+<persistable path="/IOT_NODE/src/os_compat.h"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="httpd.c" tooltip="HTTP_SERVER/src/httpd.c">
+<persistable path="/HTTP_SERVER/src/httpd.c"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="enc28j60_ll.c" tooltip="HTTP_SERVER/src/ENC28J60_STM32Fxxx/enc28j60_ll.c">
+<persistable path="/HTTP_SERVER/src/ENC28J60_STM32Fxxx/enc28j60_ll.c"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="enc28j60_ll.h" tooltip="HTTP_SERVER/src/ENC28J60_STM32Fxxx/enc28j60_ll.h">
+<persistable path="/HTTP_SERVER/src/ENC28J60_STM32Fxxx/enc28j60_ll.h"/>
+</file>
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="ap.c" tooltip="SUZUKI_GATE/src/modules/ap.c">
 <persistable path="/SUZUKI_GATE/src/modules/ap.c"/>
 </file>
@@ -382,33 +477,6 @@
 </file>
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="system_stm32f10x.h" tooltip="SUZUKI_GATE/cmsis_boot/system_stm32f10x.h">
 <persistable path="/SUZUKI_GATE/cmsis_boot/system_stm32f10x.h"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="system_stm32f10x.c" tooltip="SUZUKI_GATE/cmsis_boot/system_stm32f10x.c">
-<persistable path="/SUZUKI_GATE/cmsis_boot/system_stm32f10x.c"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="counter.c" tooltip="HTTP_SERVER/counter.c">
-<persistable path="/HTTP_SERVER/counter.c"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="printf.c" tooltip="SUZUKI_GATE/uSTDIO_LIBRARIES/printf.c">
-<persistable path="/SUZUKI_GATE/uSTDIO_LIBRARIES/printf.c"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="stm32f100x8.h" tooltip="SUZUKI_GATE/CMSIS/Devices/ST/STM32F1xx/Include/stm32f100x8.h">
-<persistable path="/SUZUKI_GATE/CMSIS/Devices/ST/STM32F1xx/Include/stm32f100x8.h"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="stm32f1xx.h" tooltip="SUZUKI_GATE/CMSIS/Devices/ST/STM32F1xx/Include/stm32f1xx.h">
-<persistable path="/SUZUKI_GATE/CMSIS/Devices/ST/STM32F1xx/Include/stm32f1xx.h"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="syscalls.c" tooltip="SUZUKI_GATE/syscalls/syscalls.c">
-<persistable path="/SUZUKI_GATE/syscalls/syscalls.c"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="main.h" tooltip="SUZUKI_GATE/src/main.h">
-<persistable path="/SUZUKI_GATE/src/main.h"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="stm32fxxx_it.c" tooltip="SUZUKI_GATE/src/stm32fxxx_it.c">
-<persistable path="/SUZUKI_GATE/src/stm32fxxx_it.c"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="tm_stm32_ds1307.h" tooltip="SUZUKI_GATE/STM32_LIBRARIES/tm_stm32_ds1307.h">
-<persistable path="/SUZUKI_GATE/STM32_LIBRARIES/tm_stm32_ds1307.h"/>
 </file>
 </mruList>
 </workbench>
