@@ -5,14 +5,14 @@
 
 #ifdef WITH_PCF8574
 #include "stm32_PCF8574.h"
-#define PCF8574_GPIO_HIGH_BEAM					0x01
-#define PCF8574_GPIO_LOW_BEAM					0x02
-#define PCF8574_GPIO_TURN_LIGHT					0x04
-#define PCF8574_GPIO_ALERT						0x08
-#define PCF8574_GPIO_ENGINE_WARNING				0x10
-#define PCF8574_GPIO_FUEL_WARNING				0x20
-#define PCF8574_GPIO_TEMP_WARNING				0x40
-#define PCF8574_GPIO_BATTERY_WARNING			0x80
+#define PCF8574_GPIO_HIGH_BEAM					0x0001
+#define PCF8574_GPIO_LOW_BEAM					0x0002
+#define PCF8574_GPIO_TURN_LIGHT					0x0004
+#define PCF8574_GPIO_ALERT						0x0008
+#define PCF8574_GPIO_ENGINE_WARNING				0x0010
+#define PCF8574_GPIO_FUEL_WARNING				0x0020
+#define PCF8574_GPIO_TEMP_WARNING				0x0040
+#define PCF8574_GPIO_BATTERY_WARNING			0x0080
 #endif // WITH_PCF8574
 
 void inputs_init(void){
@@ -22,9 +22,9 @@ void inputs_init(void){
 	_D(("I: INPUTS module loaded ... OK\n"));
 }
 
-static uint8_t inputs_gpio = 0;
+static u16 inputs_gpio = 0;
 
-u8 inputs_get(void){
+u16 inputs_get(void){
 	return inputs_gpio;
 }
 
@@ -43,7 +43,7 @@ void inputs_poll(void){
 		HAL_GetTick() > next_time ){
 
 		char notification[ 15 ];
-		sprintf( notification, "INPUT %x\n", ext_gpio );
+		sprintf( notification, "INPUT %d\n", ext_gpio );
 		xgate_set_notification( XGATE_INPUTS );
 		xgate_send_notification( notification );
 	}

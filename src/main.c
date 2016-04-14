@@ -27,6 +27,18 @@ static double fabs( double n ){
 #define PROJECT_NAME	"SUZUKI_GATE"
 #define AUTHOR			"Pablo <w_pawel74@tlen.pl>"
 
+#ifdef WITH_VOLTAGE
+#define IGNITION_DETECTION_TRIGER_LEVEL				4.0
+static int ignition = 0;
+
+/**
+ * is ignition active or not. detected based on measure voltage
+ * NOTE: see trigger level IGNITION_DETECTION_TRIGER_LEVEL in Volts
+ */
+int is_ignition(void){
+	return ignition;
+}
+#endif // WITH_VOLTAGE
 
 int main(void) {
 	/* Init system */
@@ -140,11 +152,26 @@ extern int AP_poll(void);
 #endif // WITH_ODOMETER
 
 #ifdef WITH_VOLTAGE
-
+		if( voltage_get_input() > IGNITION_DETECTION_TRIGER_LEVEL ){
+			if( ignition == 0 ){
+				char notification[ 15 ];
+				sprintf( notification, "IGNITION %d\n", 1 );
+				xgate_set_notification( XGATE_IGNITION );
+				xgate_send_notification( notification );
+			}
+			ignition = 1;
 #ifdef WITH_SELFHOLD
-		if( voltage_get_input() > 3.0 )
 			off_delay = HAL_GetTick();
 #endif // WITH_SELFHOLD
+		} else {
+			if( ignition == 1 ){
+				char notification[ 15 ];
+				sprintf( notification, "IGNITION %d\n", 0 );
+				xgate_set_notification( XGATE_IGNITION );
+				xgate_send_notification( notification );
+			}
+			ignition = 0;
+		}
 
 		if(
 #ifdef VOLTAGE_NOTIFICATION_PERIODICALLY
