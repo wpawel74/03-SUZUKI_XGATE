@@ -112,7 +112,7 @@ extern int AP_poll(void);
 #endif // WITH_WIFI_AP
 
 #ifdef WITH_SELFHOLD
-#	define OFF_DELAY_SEC			5
+#	define OFF_DELAY_SEC			60
 	u32 off_delay = HAL_GetTick();
 	TM_GPIO_Init( GPIOA, GPIO_Pin_8, TM_GPIO_Mode_OUT, TM_GPIO_OType_PP, TM_GPIO_PuPd_UP, TM_GPIO_Speed_Low );
 	TM_GPIO_SetPinHigh( GPIOA, GPIO_Pin_8 );
